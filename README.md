@@ -1,4 +1,4 @@
-# packages
+# packages to install
 ```bash
 pip install --target=/<full_path_to_git_repo>/packages pypdf2
 ```
