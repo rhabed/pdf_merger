@@ -21,4 +21,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         echo "start of linting"
-        echo "anoter test on runner"
+        echo "another test on runner"
