@@ -16,3 +16,4 @@ will this work ?
 2022-04-28
 new test 1
 another test for today to get host id 
+delete the instance
