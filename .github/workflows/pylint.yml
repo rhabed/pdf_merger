@@ -11,8 +11,8 @@ jobs:
         id: build
         uses: veertuinc/anka-vm-github-action@v1.3.3
         with:
-          anka-vm-template-name: "anka-packer-base-macos"
-          anka-vm-tag-name: "veertu-registry-push-test"
+          anka-vm-template-name: "6706ab3e-7aa4-42a5-88ae-931928236afc"
+          #anka-vm-tag-name: "veertu-registry-push-test"
           anka-run-options: "--env"
           vm-commands: |
             echo \"Starting build process on \$(hostname)\"
