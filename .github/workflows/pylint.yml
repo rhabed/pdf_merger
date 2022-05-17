@@ -15,7 +15,8 @@ jobs:
           #anka-vm-tag-name: "veertu-registry-push-test"
           anka-run-options: "--env"
           vm-commands: |
-            echo \"Starting build process on \$(hostname)\"
+            date
+            echo \"Starting build 1 process on \$(hostname)\"
             echo \"This is a test $(whoami)\"
   build-2:
     runs-on: [self-hosted, macOS]
@@ -29,5 +30,6 @@ jobs:
           #anka-vm-tag-name: "veertu-registry-push-test"
           anka-run-options: "--env"
           vm-commands: |
-            echo \"Starting build process on \$(hostname)\"
-            echo \"This is a test $(whoami)\"
+            date
+            echo \"Starting build 2 process on \$(hostname)\"
+            echo \"This is a test \$(whoami)\"
