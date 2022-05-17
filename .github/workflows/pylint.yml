@@ -4,18 +4,23 @@ on: [push]
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: [self-hosted, macOS]
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        pip3 install pylint
-    - name: Analysing the code with pylint
-      run: |
-        echo "start of linting"
-        echo "another test on runner"
+      - uses: actions/checkout@v2
+      - name: build
+        id: build
+        uses: veertuinc/anka-vm-github-action@v1.3.3
+        with:
+          anka-vm-template-name: "anka-packer-base-macos"
+          anka-vm-tag-name: "veertu-registry-push-test"
+          anka-run-options: "--env"
+          vm-commands: |
+            echo \"Starting build process on \$(hostname)\"
+            ./build.sh && \
+            ./cleanup.sh
+          anka-cp-host-paths: |
+            ./
+            /Users/ec2-user/cache
+          artifact-files: |
+            log.txt
+            build/binaryfile-v1
